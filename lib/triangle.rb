@@ -9,9 +9,10 @@ class Triangle
   end
 
   def kind
-    sides = [side_1, side_2, side_3]
+    sides = [side_1, side_2, side_3].sort
     if sides.any? {|side| side <= 0} || sides.all? {|side| side == 0}
       raise TriangleError
+    elsif side_1 + side_2 < side_3 || side_1 + side_2 < side_3
     elsif sides.uniq.length == 1
       :equilateral
     elsif sides.uniq.length == 2
